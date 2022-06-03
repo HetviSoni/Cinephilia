@@ -1,6 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 class MovieTile extends StatefulWidget {
-  String posterPath;
+  String? posterPath;
   String original_title;
   List<dynamic> genre_ids;
   num vote_average;
@@ -27,7 +29,7 @@ class _MovieTileState extends State<MovieTile> {
                 margin: EdgeInsets.only(top: 15),
                 elevation: 0,
                 shadowColor: Colors.black,
-                color: Colors.greenAccent[100],
+                color: Colors.grey,
                 child: SizedBox(
                   width: 380,
                   height: 130,
@@ -42,7 +44,7 @@ class _MovieTileState extends State<MovieTile> {
                     padding: EdgeInsets.only(left: 1),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(12),
-                      child: Image.network('http://image.tmdb.org/t/p/w500'+widget.posterPath,
+                      child: Image.network('http://image.tmdb.org/t/p/w500'+widget.posterPath.toString(),
                         width: 100,
                         height: 150,
                       ),
@@ -52,16 +54,25 @@ class _MovieTileState extends State<MovieTile> {
                     width: 10,
                   ),
                   Container(
-                    color: Colors.blue,
+                    color: Color(0xff1e2746),
                     height: 110,
                     width: 260,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(widget.original_title),
+                        SizedBox(height:5),
+                        Text(widget.original_title,
+                          style:TextStyle(
+                          fontWeight: FontWeight.bold,
+                            color: Colors.white.withOpacity(0.6),
+                            fontSize: 18,
+                          )
+                          ,),
+                        SizedBox(height:5),
                         Text(
                           "⭐ "+ widget.vote_average.toString() ,
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white.withOpacity(0.6),
                               fontWeight: FontWeight.w200,
                               fontFamily: "Poppins-Semibold",
                               fontSize: MediaQuery.of(context)
@@ -69,6 +80,30 @@ class _MovieTileState extends State<MovieTile> {
                                   .width *
                                   0.033),
                         ),
+                        SizedBox(height:5),
+                        Text(
+                           widget.releaseDate.toString() ,
+                          style: TextStyle(
+                              color: Colors.white.withOpacity(0.6),
+                              fontWeight: FontWeight.w200,
+                              fontFamily: "Poppins-Semibold",
+                              fontSize: MediaQuery.of(context)
+                                  .size
+                                  .width *
+                                  0.033),
+                        ),
+                        SizedBox(height:5),
+                        // Text(
+                        //   widget.genre_ids.toString() ,
+                        //   style: TextStyle(
+                        //       color: Colors.white.withOpacity(0.6),
+                        //       fontWeight: FontWeight.w200,
+                        //       fontFamily: "Poppins-Semibold",
+                        //       fontSize: MediaQuery.of(context)
+                        //           .size
+                        //           .width *
+                        //           0.033),
+                        // ),
                       ],
                     ),
                   ),

@@ -19,16 +19,22 @@ class _TabScreenState extends State<TabScreen>
   {
     super.initState();
     _tabController= TabController(
-        length: 3, vsync: this, initialIndex: 1
+        length: 3, vsync: this, initialIndex: 0
     );
   }
   Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cinephilia'),
+        title: Row(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: const [
+          Text('CINE'),
+          Text('phelia', style: TextStyle(color: Colors.yellow),),
+        ],
+        ),
         elevation: 0.7,
-        backgroundColor: Colors.green.shade800,
+        backgroundColor: Colors.deepPurple.shade500,
         bottom: TabBar(
           controller: _tabController,
           indicatorColor: Colors.white,
@@ -64,3 +70,4 @@ class _TabScreenState extends State<TabScreen>
     );
   }
 }
+

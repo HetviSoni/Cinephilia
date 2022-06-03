@@ -42,6 +42,7 @@ class _MovieHomeState extends State<MovieHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: Colors.black,
         child: Column(
           children: [
             Row(
@@ -86,7 +87,7 @@ class _MovieHomeState extends State<MovieHome> {
                   itemCount: inTheatres.length,
                   itemBuilder: (context,index){
                     return MovieTile(
-                      posterPath: inTheatres[index].poster_path,
+                      posterPath: inTheatres[index].poster_path.toString(),
                       genre_ids: inTheatres[index].genre_ids,
                       releaseDate: inTheatres[index].releaseDate,
                       vote_average: inTheatres[index].vote_average,
@@ -99,7 +100,7 @@ class _MovieHomeState extends State<MovieHome> {
                   itemCount: Upcoming.length,
                   itemBuilder: (context,index){
                     return MovieTile(
-                      posterPath: Upcoming[index].poster_path,
+                      posterPath: Upcoming[index].poster_path.toString(),
                       genre_ids: Upcoming[index].genre_ids,
                       releaseDate: Upcoming[index].releaseDate,
                       vote_average: Upcoming[index].vote_average,
@@ -116,13 +117,14 @@ class _MovieHomeState extends State<MovieHome> {
   Widget button(String type, int index)
   {
     return Container(
-      width: 150,
+      width: 165,
       height: 38,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(type,
           style: TextStyle(
             fontWeight: FontWeight.w500,
+            color: Colors.white,
             fontSize: 18,
           ),
         ),

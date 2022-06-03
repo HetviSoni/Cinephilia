@@ -1,5 +1,5 @@
 class MovieInfo{
-  late String poster_path;
+  String? poster_path;
   late String original_title;
   late List<dynamic> genre_ids;
   late num vote_average;

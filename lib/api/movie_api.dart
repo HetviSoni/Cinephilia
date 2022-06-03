@@ -6,18 +6,18 @@ class bollyWoodMovies{
   List<movieModel> bollywoodMovies = [];
   //=================for bollywood movies============
   Future<void> getBollywoodMovies()async {
-    var response = await http.get(Uri.parse("https://api.themoviedb.org/3/movie/upcoming?api_key=5b81a5691687fb4b7827318805cd5e10&language=en-US&with_original_language=hi"));
+    var response = await http.get(Uri.parse("https://api.themoviedb.org/3/movie/upcoming?api_key=5b81a5691687fb4b7827318805cd5e10&with_original_language=hi"));
     var jsonData = jsonDecode(response.body);
     jsonData['results'].forEach((element){
       movieModel newMovie = movieModel(
         originalLanguage: element['original_language'],
         title:element['title'],
         id: element['id'],
-        posterPath: element['poster_path'],
-
+        posterPath: element['poster_path'] as String?,
       );
       print(element['title']);
-      bollywoodMovies.add(newMovie);
+      if(element['poster_path']!=null)
+        {bollywoodMovies.add(newMovie);}
     });
   }
 }
@@ -32,7 +32,7 @@ class hollywoodMovies{
         originalLanguage: element['original_language'],
         title:element['title'],
         id: element['id'],
-        posterPath: element['poster_path'],
+        posterPath: element['poster_path'] as String?,
 
       );
       print(element['title']);

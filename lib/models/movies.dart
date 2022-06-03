@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 class movieModel{
-  late String posterPath;
-  late String title;
+   String? posterPath;
+   late String title;
   late String originalLanguage;
   int id;
   // String trailerId;

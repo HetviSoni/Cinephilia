@@ -8,9 +8,9 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class BollywoodMovieTile extends StatefulWidget {
   final String title;
-  final String posterPath;
+  final String? posterPath;
   final int id;
-  const BollywoodMovieTile({required this.title, required this.posterPath,required this.id}) ;
+  BollywoodMovieTile({required this.title, required this.posterPath,required this.id}) ;
 
   @override
   _BollywoodMovieTileState createState() => _BollywoodMovieTileState();
@@ -60,7 +60,7 @@ class _BollywoodMovieTileState extends State<BollywoodMovieTile> {
                       topRight: Radius.circular(8.0),
                     ),
                     child: Image.network(
-                      'http://image.tmdb.org/t/p/w500'+widget.posterPath,
+                      'http://image.tmdb.org/t/p/w500'+widget.posterPath.toString(),
                       width: 280,
                     ),
                   ),
@@ -100,7 +100,7 @@ class _WatchTrailerState extends State<WatchTrailer> {
 }
 class HollywoodTile extends StatefulWidget {
   final String title;
-  final String posterPath;
+  final String? posterPath;
   final int id;
   HollywoodTile({required this.id, required this.posterPath, required this.title});
 
@@ -151,7 +151,7 @@ class _HollywoodTileState extends State<HollywoodTile> {
                       topRight: Radius.circular(8.0),
                     ),
                     child: Image.network(
-                      'http://image.tmdb.org/t/p/w500'+widget.posterPath,
+                      'http://image.tmdb.org/t/p/w500'+widget.posterPath.toString() ,
                       width: 360,
                     ),
                   ),

@@ -42,10 +42,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('Trailers'),
-      //   backgroundColor: Colors.deepOrangeAccent.shade200,
-      // ),
       body: Container(
         color: Colors.black87,
         child: SingleChildScrollView(
@@ -62,8 +58,8 @@ class _HomeState extends State<Home> {
                   child: Text('Bollywood',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 19,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ),
@@ -91,8 +87,8 @@ class _HomeState extends State<Home> {
                   padding: EdgeInsets.all(9.0),
                   child: Text('Hollywood',
                     style: TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
                       color: Colors.white,
                     ),
                   ),
@@ -108,7 +104,7 @@ class _HomeState extends State<Home> {
                     return HollywoodTile(
                       id: hmovies[index].id,
                       title:hmovies[index].title,
-                      posterPath: hmovies[index].posterPath,
+                      posterPath: hmovies[index].posterPath.toString(),
                     );
                   },
                 ),
